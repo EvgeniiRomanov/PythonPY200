@@ -45,5 +45,5 @@ if __name__ == "__main__":
     print(list_nodes)
 
     # TODO реализуйте алгоритм, который свяжет между собой узлы в списке
-
+    #через for или list compre
     print(list_nodes)
