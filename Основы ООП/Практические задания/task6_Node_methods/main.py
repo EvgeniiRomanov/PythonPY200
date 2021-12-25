@@ -12,7 +12,7 @@ class Node:
         """
 
         self.value = value
-        self.next_ = next_
+        self.nextnode = next_
           # TODO добавить атрибуты
 
     def get_value(self) -> Any:
@@ -21,15 +21,17 @@ class Node:
         return self.value
     # TODO добавить метод get_next
     def get_next(self) -> Optional["Node"]:
-        return self.next_
+        return self.nextnode
 
 if __name__ == '__main__':
-    first_node = Node(1)  # первый узел
+    first_node = Node(1, 3)  # первый узел
     second_node = Node(2)  # второй узел
-
+    third_node = Node(3)
     # TODO с помощью метода распечатать значение первого узла
     # TODO  с помощью метода распечатать следующий узел второго узла
     #print(first_node.value)
     print(first_node.get_value()) #равнсильно преды
-
+    print(second_node.get_value())
+    print(third_node.get_value())
+    print(first_node.get_next())
     print(second_node.get_next())

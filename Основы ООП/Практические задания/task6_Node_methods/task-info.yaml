@@ -9,7 +9,7 @@ files:
 - name: main.py
   visible: true
   placeholders:
-  - offset: 426
+  - offset: 429
     length: 26
     placeholder_text: '...  # TODO добавить атрибуты'
     initial_state:
@@ -21,7 +21,7 @@ files:
     encrypted_possible_answer: |-
       self.value = value
               self.next = next_
-  - offset: 558
+  - offset: 561
     length: 34
     placeholder_text: '...  # TODO вернуть значение узла'
     initial_state:
@@ -31,7 +31,7 @@ files:
     selected: false
     status: Solved
     encrypted_possible_answer: return self.value
-  - offset: 623
+  - offset: 626
     length: 30
     placeholder_text: '# TODO добавить метод get_next'
     initial_state:
@@ -44,7 +44,7 @@ files:
       def get_next(self) -> Optional["Node"]:
               """Метод, который возвращает значение атрибута next"""
               return self.next
-  - offset: 838
+  - offset: 871
     length: 57
     placeholder_text: '# TODO с помощью метода распечатать значение первого узла'
     initial_state:
@@ -54,7 +54,7 @@ files:
     selected: false
     status: Solved
     encrypted_possible_answer: print(first_node.get_value())
-  - offset: 900
+  - offset: 933
     length: 64
     placeholder_text: '# TODO  с помощью метода распечатать следующий узел второго
       узла'
