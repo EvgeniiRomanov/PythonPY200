@@ -3,14 +3,14 @@ files:
 - name: task.py
   visible: true
   placeholders:
-  - offset: 0
-    length: 17
+  - offset: 926
+    length: 0
     placeholder_text: '# TODO class Date'
     initial_state:
       length: 17
       offset: 0
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
     encrypted_possible_answer: |
       # TODO
