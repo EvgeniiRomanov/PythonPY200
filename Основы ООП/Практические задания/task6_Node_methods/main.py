@@ -24,8 +24,8 @@ class Node:
         return self.nextnode
 
 if __name__ == '__main__':
-    first_node = Node(1, 3)  # первый узел
-    second_node = Node(2)  # второй узел
+    first_node = Node(1)  # первый узел
+    second_node = Node(2, 3)  # второй узел
     third_node = Node(3)
     # TODO с помощью метода распечатать значение первого узла
     # TODO  с помощью метода распечатать следующий узел второго узла

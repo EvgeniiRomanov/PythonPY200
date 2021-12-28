@@ -12,15 +12,17 @@ class Node:
         """
         self.value = value
 
+
         self.next = None
         self.set_next(next_)
+        #self.next = self.set_next(next_)
 
     def __repr__(self) -> str:
         return f"Node({self.value}, {None})" if self.next is None else f"Node({self.value}, Node({self.next}))"
 
     def __str__(self) -> str:
         # TODO метод должен возвращать значение текущего узла
-        return f"Node({self.value}, {None})" if self.next is None else f"Node({self.value}, Node({self.next}))"
+        return f"{self.value}"
 
     def is_valid(self, node: Any) -> None:
         if not isinstance(node, (type(None), Node)):
@@ -29,6 +31,11 @@ class Node:
     def set_next(self, next_: Optional["Node"] = None) -> None:
         self.is_valid(next_)
         self.next = next_
+        #return next_
+
+
+
+
 
 
 def linked_nodes(left_node: Node, right_node: Optional["Node"] = None) -> None:
@@ -47,7 +54,14 @@ if __name__ == "__main__":
 
     # TODO реализуйте алгоритм, который свяжет между собой узлы в списке
     #через for или list compre
-    for item in list_nodes:
-        list_nodes[item] = linked_nodes()
+    # node1 = Node(1)
+    #
+    # node3 = Node(102)
+    # node2 = Node(101, node3)
+    # print(node1)
+    # node1.set_next(node2)
+    # print([node2])
 
+    for i in range(len(list_nodes) - 1):
+         linked_nodes(list_nodes[i], list_nodes[i+1])
     print(list_nodes)
