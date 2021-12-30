@@ -9,7 +9,7 @@ files:
 - name: main.py
   visible: true
   placeholders:
-  - offset: 144
+  - offset: 173
     length: 130
     placeholder_text: |-
       self.capacity_volume = capacity_volume  # объем стакана

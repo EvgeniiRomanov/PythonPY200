@@ -51,12 +51,13 @@ class LinkedList:
 
     def __getitem__(self, index: int) -> Any:
         """ Метод возвращает значение узла по указанному индексу. """
+        #print("g_i")
         node = self.step_by_step_on_nodes(index)
         return node.value
 
     def __str__(self) -> str:
-        return return str(self.list_nodes)  # TODO заменить на list comprehansion
-
+        #return return str(self.list_nodes)  # TODO заменить на list comprehansion
+        return f"{[node_index for node_index in self]}"
 
 if __name__ == '__main__':
     list_ = [1, 2, 3]

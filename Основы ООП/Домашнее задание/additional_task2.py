@@ -24,7 +24,7 @@ class Trapezoid:
 
 
     def __repr__(self) ->str:
-        return f"Trapezoid({self.base_down}, {self.base_up}, {self.side_left}, {self.side_right})"
+        return f"{self.__class__.__name__}({self.base_down}, {self.base_up}, {self.side_left}, {self.side_right})"
 
 
     def get_hight(self):
@@ -80,4 +80,5 @@ if __name__ == "__main__":
     print(tr1.get_hight())
     print(tr1.get_square())
 
+    print(repr(tr1))
     tr1.get_image()
