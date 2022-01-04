@@ -10,7 +10,7 @@ files:
   visible: true
   placeholders:
   - offset: 371
-    length: 110
+    length: 68
     placeholder_text: |-
       # TODO  инициализировать атрибуты экземпляра класса Node
               ...
@@ -23,29 +23,29 @@ files:
     encrypted_possible_answer: |-
       self.value = value
               self.next = next_
-  - offset: 487
+  - offset: 445
     length: 60
     placeholder_text: '# TODO реализовать метод __repr__ для отображения экземпляра'
     initial_state:
       length: 60
       offset: 445
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Solved
     encrypted_possible_answer: |-
       def __repr__(self) -> str:
               return f"Node({self.value}, {self.next})"
-  - offset: 670
+  - offset: 552
     length: 40
     placeholder_text: '...  # TODO инициализировать первый узел'
     initial_state:
       length: 40
       offset: 552
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Solved
     encrypted_possible_answer: Node(1)
-  - offset: 793
+  - offset: 612
     length: 40
     placeholder_text: '...  # TODO инициализировать второй узел'
     initial_state:
@@ -55,7 +55,7 @@ files:
     selected: false
     status: Solved
     encrypted_possible_answer: Node(2)
-  - offset: 921
+  - offset: 675
     length: 78
     placeholder_text: '...  # TODO через атрибут экземпляра устанавливаем первому
       узлу следующий узел'
@@ -100,5 +100,5 @@ files:
 status: Solved
 feedback:
   message: Congratulations!
-  time: Sat, 25 Dec 2021 09:16:48 UTC
+  time: Tue, 04 Jan 2022 21:04:40 UTC
 record: -1
