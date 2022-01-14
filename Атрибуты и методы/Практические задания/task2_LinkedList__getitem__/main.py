@@ -61,4 +61,4 @@ if __name__ == "__main__":
     linked_list = LinkedList(list_)
     print(linked_list)
 
-    print(linked_list[1])
+    print(linked_list[2])

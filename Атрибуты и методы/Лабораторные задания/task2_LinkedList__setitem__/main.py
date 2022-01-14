@@ -66,7 +66,6 @@ class LinkedList:
         node.value = value
 
 
-
     def to_list(self) -> list:
         return [linked_list_value for linked_list_value in self]
 

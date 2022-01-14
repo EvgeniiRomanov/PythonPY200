@@ -92,7 +92,7 @@ files:
       length: 57
       offset: 1462
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Solved
     encrypted_possible_answer: |-
       for _ in range(index):

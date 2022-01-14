@@ -12,7 +12,6 @@ class Node:
         """
         self.value = value
 
-
         self.next = None
         self.set_next(next_)
         #self.next = self.set_next(next_)
