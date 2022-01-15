@@ -3,10 +3,13 @@ from driver1 import Driver
 
 class DriverTypeError(Exception):
     pass
+
+
 class Car:
     brand = None
     _max_speed = 180
     __created_car = 0
+
     def __init__(self, color, body_type, model_name,
                  engine_type, gear_type, complectation):
 
@@ -18,6 +21,7 @@ class Car:
         self.color = color
 
         self.__driver = None
+
     @property
     def driver(self):
         if self.__driver is None:
