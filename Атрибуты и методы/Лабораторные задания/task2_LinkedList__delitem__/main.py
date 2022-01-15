@@ -81,7 +81,7 @@ class LinkedList:
             end_node.next = None
         else:
             prev_node = self.step_by_step_on_nodes(index - 1)
-            del_node = prev_node
+            del_node = prev_node.next
             next_node = del_node.next
 
             self.linked_nodes(prev_node, next_node)
