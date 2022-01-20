@@ -35,7 +35,7 @@ class Date:
     def is_valid_date(self, day: int, month: int, year: int):
         """Проверяет, является ли дата корректной"""
         # TODO
-        if not isinstance((day or month or year), int):
+        if not isinstance(day, int) or not isinstance(month, int) or not isinstance(year, int):
             raise TypeError("Вводится целое число!")
         if not 0 < day <= 31:
             raise ValueError("В месяце от 1 до 31 дня, а в феврале до 28 или 29")
