@@ -7,6 +7,7 @@ class Glass:
         print(self.capacity_volume)
 
 if __name__ == "__main__":
-    glass = Glass(200, 0)
+    glass = Glass(200, 50)
+    print(glass.__class__)
     print(glass.__dict__)
     print(dir(glass))
