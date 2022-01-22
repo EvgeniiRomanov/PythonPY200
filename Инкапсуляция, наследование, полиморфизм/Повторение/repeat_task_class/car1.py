@@ -35,7 +35,8 @@ class Car:
 
 
         self.__mileage = 0
-        self.__TO_ = 0
+        self.count_TO = 0
+        self.status_TO = False
         self.__driver = None
         self.__engine_status = False
 
@@ -99,7 +100,7 @@ class Car:
             raise EngineIsNotRunning("двигатель не запущен")
         if not self.__check_driver():
             raise DriverNotFoundError("водитель не найден")
-        if not self.TO_check():
+        if not self.check_TO():
             raise TechnicInspection(f"без пройденного ТО автомобиль не поедет")
         return True
 
@@ -115,8 +116,12 @@ class Car:
         except (EngineIsNotRunning, DriverNotFoundError, TechnicInspection) as e:
             print(f"Машина не может начать движение, т.к. {e}")
 
-    def TO_check(self):
-        if self.__mileage >= 30:
+    def make_TO(self):
+        self.count_TO += 1
+        self.status_TO = False
+
+    def check_TO(self):
+        if self.__mileage % 30 and self.status_TO:
             print(f"{self.__driver}, Вы не можете ехать без пройденного ТО")
             return False
         if self.__mileage >= 20:

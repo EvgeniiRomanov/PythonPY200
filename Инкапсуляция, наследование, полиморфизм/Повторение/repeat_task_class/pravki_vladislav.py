@@ -1,7 +1,7 @@
 import time
 import random
 
-from driver import Driver, Experience
+from driver1 import Driver, Experience
 
 
 class DriverTypeError(Exception):
@@ -47,6 +47,7 @@ class Car:
         self.__driver = None
         self.__engine_status = False
         self.__count_TO = 0
+        TO_CONST = 30
         self.__status_TO = False
 
         self.time_driving = 0
@@ -159,7 +160,7 @@ class Car:
         self.__status_TO = False
 
     def check_TO(self):
-        if self.__mileage % 30 > 0 and self.__status_TO:
+        if self.__mileage  >= 0 and self.__status_TO:
             print(f"{self.__driver}, Вы не можете ехать без пройденного ТО")
             return False
         if self.__mileage >= 20:
