@@ -22,6 +22,7 @@ class Car:
     brand = None
     _max_speed = 180
     __created_car = 0
+    CONST_TO = (30, 60, 90, 120, 150, 180, 210, 240, 270, 300)
 
     def __init__(self, color, body_type, model_name,
                  engine_type, gear_type, complectation):
@@ -95,12 +96,17 @@ class Car:
             return True
         return False
 
+    def check_technical_inspection(self):
+        if self.status_TO is False:
+            return True
+        return False
+
     def __ready_status(self):
         if not self.__engine_status:
             raise EngineIsNotRunning("двигатель не запущен")
         if not self.__check_driver():
             raise DriverNotFoundError("водитель не найден")
-        if not self.check_TO():
+        if not self.check_technical_inspection():
             raise TechnicInspection(f"без пройденного ТО автомобиль не поедет")
         return True
 
@@ -112,21 +118,20 @@ class Car:
                     print(f'\rМашина проехала {i+1} км.', end='')
                     time.sleep(0.3)
                     self.__mileage += 1
+                    if self.__mileage % 25 == 0:
+                        print(f"Пробег = {self.__mileage} до {self.__mileage + 5} км пройдите ТО")
+                    if self.__mileage % 30 == 0:
+                        self.status_TO = True
                 print(f'\nПройдено {self.__mileage}')
         except (EngineIsNotRunning, DriverNotFoundError, TechnicInspection) as e:
             print(f"Машина не может начать движение, т.к. {e}")
 
-    def make_TO(self):
+    def make_technical_inspection(self):
+        print(f"TO {self.count_TO} пройдено")
         self.count_TO += 1
         self.status_TO = False
 
-    def check_TO(self):
-        if self.__mileage % 30 and self.status_TO:
-            print(f"{self.__driver}, Вы не можете ехать без пройденного ТО")
-            return False
-        if self.__mileage >= 20:
-            print(f"Необходимо пройти ТО, можно проехать еще 10 км, после автомобидль не поедет")
-        return True
+
     # /Блок отработки движения машины
 
     # Блок работы с защищёнными методами
@@ -176,7 +181,13 @@ if __name__ == '__main__':
     car.move()
     car.move()
     car.move()
-
+    car.make_technical_inspection()
+    car.move()
+    car.move()
+    car.move()
+    car.move()
+    car.move()
+    car.move()
     # /Блок отработки движения машины
 
     # Блок отработки свойств
