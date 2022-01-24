@@ -185,6 +185,7 @@ if __name__ == '__main__':
     car.move()
     car.move()
     car.move()
+    car.make_technical_inspection()
     car.move()
     car.move()
     car.move()
