@@ -97,11 +97,6 @@ class Car:
             return True
         return False
 
-    def check_technical_inspection(self):
-        if self.status_TO is False:
-            return True
-        return False
-
     def __ready_status(self):
         if not self.__engine_status:
             raise EngineIsNotRunning("двигатель не запущен")
@@ -112,7 +107,7 @@ class Car:
         return True
 
 
-    def move(self, distance=50):
+    def move(self, distance=10):
         try:
             if self.__ready_status():
                 for i in range(distance):
@@ -129,13 +124,17 @@ class Car:
         except (EngineIsNotRunning, DriverNotFoundError, TechnicInspection) as e:
             print(f"Машина не может начать движение, т.к. {e}")
 
+    # /Блок отработки технического осмотра
+    def check_technical_inspection(self):
+        if self.status_TO is False:
+            return True
+        return False
+
     def make_technical_inspection(self):
         print(f"TO {self.count_TO} пройдено")
         self.count_TO += 1
         self.status_TO = False
 
-
-    # /Блок отработки движения машины
 
     # Блок работы с защищёнными методами
     @property
@@ -169,8 +168,6 @@ if __name__ == '__main__':
     # print(car_2._max_speed)
 
 
-
-
     # Блок работы с защищёнными методами
     # print(car._mileage)
     # car._mileage = '10'
@@ -183,7 +180,10 @@ if __name__ == '__main__':
     car.move()
     car.move()
     car.move()
+    car.move()
+    car.move()
     car.make_technical_inspection()
+    car.move()
     car.move()
 
     # /Блок отработки движения машины
