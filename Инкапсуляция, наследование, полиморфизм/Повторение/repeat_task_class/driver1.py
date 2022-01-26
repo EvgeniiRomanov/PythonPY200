@@ -8,10 +8,16 @@ class Driver:
     def __str__(self):
         return f"Водитель {self.__name}"
 
+    def get_name(self):
+        return self.__name
+
+    def set_name(self, name):
+        self.__name = name
+
 
 if __name__ == '__main__':
     ivan = Driver("Иван")
-    alex = Driver("Алексей")
+    ivan = Driver("Алексей")
 
-    print(ivan)
-    print(alex)
+
+

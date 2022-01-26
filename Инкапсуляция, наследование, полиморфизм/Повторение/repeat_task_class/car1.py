@@ -22,7 +22,7 @@ class Car:
     brand = None
     _max_speed = 180
     __created_car = 0
-    CONST_TO = (30, 60, 90, 120, 150, 180, 210, 240, 270, 300)
+
 
     def __init__(self, color, body_type, model_name,
                  engine_type, gear_type, complectation):
@@ -36,7 +36,8 @@ class Car:
 
 
         self.__mileage = 0
-        self.count_TO = 0
+        self.count_TO = 1
+        self.const_to = 25
         self.status_TO = False
         self.__driver = None
         self.__engine_status = False
@@ -111,17 +112,19 @@ class Car:
         return True
 
 
-    def move(self, distance=10):
+    def move(self, distance=50):
         try:
             if self.__ready_status():
                 for i in range(distance):
                     print(f'\rМашина проехала {i+1} км.', end='')
-                    time.sleep(0.3)
+                    time.sleep(0.1)
                     self.__mileage += 1
-                    if self.__mileage % 25 == 0:
-                        print(f"Пробег = {self.__mileage} до {self.__mileage + 5} км пройдите ТО")
-                    if self.__mileage % 30 == 0:
-                        self.status_TO = True
+                    if self.__mileage > self.const_to:
+                        print(f" Общий пробег = {self.__mileage}, пройдите ТО {self.count_TO}")
+                        if self.__mileage % 30 == 0:
+                            self.status_TO = True
+                            self.const_to += self.__mileage
+                            raise TechnicInspection(f" ТО {self.count_TO} НЕ ПРОЙДЕНО!")
                 print(f'\nПройдено {self.__mileage}')
         except (EngineIsNotRunning, DriverNotFoundError, TechnicInspection) as e:
             print(f"Машина не может начать движение, т.к. {e}")
@@ -180,15 +183,9 @@ if __name__ == '__main__':
     car.move()
     car.move()
     car.move()
-    car.move()
     car.make_technical_inspection()
     car.move()
-    car.move()
-    car.move()
-    car.make_technical_inspection()
-    car.move()
-    car.move()
-    car.move()
+
     # /Блок отработки движения машины
 
     # Блок отработки свойств
