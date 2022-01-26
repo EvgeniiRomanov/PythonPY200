@@ -37,7 +37,7 @@ class Car:
 
         self.__mileage = 0
         self.count_TO = 1
-        self.const_to = 25
+        self.const_TO = 25
         self.status_TO = False
         self.__driver = None
         self.__engine_status = False
@@ -114,17 +114,17 @@ class Car:
                     print(f'\rМашина проехала {i+1} км.', end='')
                     time.sleep(0.1)
                     self.__mileage += 1
-                    if self.__mileage > self.const_to:
+                    if self.__mileage > self.const_TO:
                         print(f" Общий пробег = {self.__mileage}, пройдите ТО {self.count_TO}")
                         if self.__mileage % 30 == 0:
                             self.status_TO = True
-                            self.const_to += self.__mileage
+                            self.const_TO += self.__mileage
                             raise TechnicInspection(f" ТО {self.count_TO} НЕ ПРОЙДЕНО!")
                 print(f'\nПройдено {self.__mileage}')
         except (EngineIsNotRunning, DriverNotFoundError, TechnicInspection) as e:
             print(f"Машина не может начать движение, т.к. {e}")
 
-    # /Блок отработки технического осмотра
+    # Блок отработки технического осмотра
     def check_technical_inspection(self):
         if self.status_TO is False:
             return True
