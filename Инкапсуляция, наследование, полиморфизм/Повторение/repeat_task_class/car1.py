@@ -36,9 +36,9 @@ class Car:
 
 
         self.__mileage = 0
-        self.count_TO = 1
-        self.const_TO = 25
-        self.status_TO = False
+        self.__count_TO = 1
+        self.__const_TO = 25
+        self.__status_TO = False
         self.__driver = None
         self.__engine_status = False
 
@@ -102,7 +102,7 @@ class Car:
             raise EngineIsNotRunning("двигатель не запущен")
         if not self.__check_driver():
             raise DriverNotFoundError("водитель не найден")
-        if not self.check_technical_inspection():
+        if not self.__check_technical_inspection():
             raise TechnicInspection(f"без пройденного ТО автомобиль не поедет")
         return True
 
@@ -114,26 +114,27 @@ class Car:
                     print(f'\rМашина проехала {i+1} км.', end='')
                     time.sleep(0.1)
                     self.__mileage += 1
-                    if self.__mileage > self.const_TO:
-                        print(f" Общий пробег = {self.__mileage}, пройдите ТО {self.count_TO}")
+                    if self.__mileage > self.__const_TO:
+                        print(f" Общий пробег = {self.__mileage}, пройдите ТО {self.__count_TO}")
                         if self.__mileage % 30 == 0:
-                            self.status_TO = True
-                            self.const_TO += self.__mileage
-                            raise TechnicInspection(f" ТО {self.count_TO} НЕ ПРОЙДЕНО!")
+                            self.__status_TO = True
+                            self.__const_TO += self.__mileage
+                            raise TechnicInspection(f" ТО {self.__count_TO} НЕ ПРОЙДЕНО!")
                 print(f'\nПройдено {self.__mileage}')
         except (EngineIsNotRunning, DriverNotFoundError, TechnicInspection) as e:
             print(f"Машина не может начать движение, т.к. {e}")
 
     # Блок отработки технического осмотра
-    def check_technical_inspection(self):
-        if self.status_TO is False:
+
+    def __check_technical_inspection(self):
+        if self.__status_TO is False:
             return True
         return False
 
-    def make_technical_inspection(self):
-        print(f"TO {self.count_TO} пройдено")
-        self.count_TO += 1
-        self.status_TO = False
+    def _make_technical_inspection(self):
+        print(f"TO {self.__count_TO} пройдено")
+        self.__count_TO += 1
+        self.__status_TO = False
 
 
     # Блок работы с защищёнными методами
@@ -180,11 +181,12 @@ if __name__ == '__main__':
     car.move()
     car.move()
     car.move()
+    car._make_technical_inspection()
     car.move()
-    car.move()
-    car.make_technical_inspection()
-    car.move()
-    car.move()
+    # car.move()
+    # car.make_technical_inspection()
+    # car.move()
+    # car.move()
 
     # /Блок отработки движения машины
 
