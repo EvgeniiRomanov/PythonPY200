@@ -1,23 +1,27 @@
-class Driver:
-    def __init__(self, name):
-        self.__name = name
+class PropertyClass:
 
-    def __repr__(self):
-        return f"{self.__class__.__name__}({self.__name})"
+    def __init__(self):
+        self.__inside_attr = None
 
-    def __str__(self):
-        return f"Водитель {self.__name}"
+    @property
+    def ggg(self):
+        """Геттер не принимает никаких агрументов, но должен возвращать какой-то результат."""
+        print("Вызван prop getter")
+        return self.__inside_attr
 
-    def get_name(self):
-        return self.__name
-
-    def set_name(self, name):
-        self.__name = name
-
-
-if __name__ == '__main__':
-    ivan = Driver("Иван")
-    ivan = Driver("Алексей")
+    @ggg.setter
+    def ggg(self, value):
+        """Сеттер принимает один агрумент, и не должен возвращать результат."""
+        print("Вызван prop setter")
+        self.__inside_attr = value
 
 
-
+obj = PropertyClass()
+print(obj.ggg)  # вызов getter
+obj.__inside_attr = 456
+print(obj.__inside_attr)
+print(obj.__dict__)
+print(PropertyClass.__dict__)
+print(obj.ggg)
+# obj.__inside_attr = 456
+# print(obj.ggg)
