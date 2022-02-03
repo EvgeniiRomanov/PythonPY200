@@ -1,6 +1,5 @@
+import checktypes
 from typing import Union
-
-import CheckTypes
 
 
 class Product:
@@ -19,9 +18,9 @@ class Product:
         #     raise TypeError("Введено не корректное значение типа.")
         # if (product_price and product_rating) < 0:
         #     raise ValueError("Значение должно быть больше 0.")
-        CheckTypes.check_type(product_name, str)
-        CheckTypes.check_type(product_price, (float, int))
-        CheckTypes.check_type(product_rating, (float, int))
+        checktypes.check_type(product_name, str)
+        checktypes.check_type(product_price, (float, int))
+        checktypes.check_type(product_rating, (float, int))
 
         self._product_name = product_name
         self._product_price = product_price
@@ -29,6 +28,9 @@ class Product:
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self._product_name}, {self._product_price}, {self._product_rating})"
+
+    def __str__(self):
+        return f"Товар: {self._product_name}. Стоимость: {self._product_price}. Рейтинг: {self._product_rating}"
 
     def get_product_name(self):
         """Метод возвращает имя товара"""
@@ -39,7 +41,7 @@ class Product:
         Метод переименования товара с проверкой на валидность типа
         :param new_name: новое имя товара
         """
-        CheckTypes.check_type(new_name, str)
+        checktypes.check_type(new_name, str)
         self._product_name = new_name
 
     def get_product_price(self):
@@ -51,7 +53,7 @@ class Product:
         Метод изменяет стоимость товара с проверкой на валидность типа и величину вводимого значения больше 0
         :param new_price: новая стоимость товара
         """
-        CheckTypes.check_type(new_price, (float, int))
+        checktypes.check_type(new_price, (float, int))
         self._product_price = new_price
 
     def get_product_rating(self):
@@ -63,17 +65,11 @@ class Product:
         Метод изменяет рейтинг товара с проверкой на валидность типа и величину значения больше 0
         :param new_rating: новый рейтинг товара
         """
-        CheckTypes.check_type(new_rating, (float, int))
+        checktypes.check_type(new_rating, (float, int))
         self._product_rating = new_rating
 
-if __name__ == "__main__":
-    pr = Product(kkkk, -100, 1.5)
-    print(pr.__dict__)
-    print(pr)
-    pr.set_product_name("-111")
-    pr.set_product_price(10)
-    pr.set_product_rating(1)
 
+if __name__ == "__main__":
+    pr = Product("Овощи", 100, 1.5)
     print(pr.__dict__)
-    print(pr._product_name, pr._product_price)
     print(pr)
