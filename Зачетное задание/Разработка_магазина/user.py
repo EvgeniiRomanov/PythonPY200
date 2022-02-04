@@ -1,7 +1,6 @@
 import checktypes
 import hashlib
-from basket import Basket, Category, Product
-from typing import Union
+from basket import Basket, Product
 
 
 class User:
@@ -19,9 +18,8 @@ class User:
 
         self._user_name = user_name
         #self._user_password = None
-        self.user_password = user_password  # по-хорошему должен лежать hash
+        self.user_password = user_password  # это свойство (через =)
         self._user_basket = None
-
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self._user_name}, {self._user_password})"
