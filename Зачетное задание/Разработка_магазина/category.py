@@ -21,7 +21,7 @@ class Category:
         return f"{self.__class__.__name__}({self._category_name}, {self._category_data})"
 
     def __str__(self):
-        return f"Категория товара: {self._category_name}\n{self.to_list()}"
+        return f"Категория товара: {self._category_name}\n{self.to_list()}\n"
 
     def to_list(self) -> list:
         return [str(value) for value in self._category_data]
