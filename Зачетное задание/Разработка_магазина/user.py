@@ -18,14 +18,32 @@ class User:
         checktypes.check_type(user_password, str)
 
         self._user_name = user_name
-        self.__user_password = user_password  # по-хорошему должен лежать hash
+        #self._user_password = None
+        self.user_password = user_password  # по-хорошему должен лежать hash
         self._user_basket = None
 
+
     def __repr__(self):
-        return f"{self.__class__.__name__}({self._user_name}, {self.__user_password})"
+        return f"{self.__class__.__name__}({self._user_name}, {self._user_password})"
 
     def __str__(self):
         return f"Пользователь: {self._user_name}. В корзине: {self._user_basket}"
+
+    @property
+    def user_password(self):
+        """Метод возвращает содержимое корзины пользователя"""
+        return self._user_password
+
+    @user_password.setter
+    def user_password(self, user_password: str):
+        """
+        Метод изменения пароля пользователя, хранится хэш пароля
+        :param user_password: пароль введенный пользователем
+        """
+        checktypes.check_type(user_password, str)
+        hash_ = bytes(user_password, "UTF-8")
+        hash_password = hashlib.sha256(hash_).hexdigest()
+        self._user_password = hash_password
 
     @property
     def user_basket(self):
@@ -57,7 +75,9 @@ if __name__ == "__main__":
     print(bas1)
     # Создаем пользователя и выдаем ему корзину
 
-    us1 = User("Вася", "Passwd")
+    us1 = User("Вася", "123")
     us1.user_basket = bas1
-    print(us1)
+    print(us1._user_password)
+
+    #print()
 

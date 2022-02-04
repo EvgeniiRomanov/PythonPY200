@@ -1,12 +1,21 @@
 import hashlib
 
-in_ = input("Введите пароль: ")
-hash_object = hashlib.sha256(f"b{in_}")
+#in_ = input("Введите пароль: ")
+hash_object = hashlib.sha256(b"'123'")
 hex_dig = hash_object.hexdigest()
 print(hex_dig)
 
-in1 = 123
-hash_object1 = hashlib.sha256(b"in_")
-hex_dig1 = hash_object1.hexdigest()
+in_ = input("Введите пароль: ")
+print(in_)
+in_ = bytes(in_, "UTF-8")
+print(in_)
+hash_object = hashlib.sha256(in_)
+hex_dig = hash_object.hexdigest()
+print(hex_dig)
 
-print(hex_dig1)
+hex_ = hashlib.sha256(in_).hexdigest()
+print(hex_)
+
+
+hash_object1 = hashlib.sha256(b"123").hexdigest()
+print(hash_object1)
