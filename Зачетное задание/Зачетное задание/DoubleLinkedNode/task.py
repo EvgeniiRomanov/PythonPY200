@@ -75,6 +75,7 @@ class DoubleLinkedNode(Node):
         self.is_valid(prev_)
         self._prev = prev_
 
+
 if __name__ == "__main__":
     nd1 = Node(1)
     nd2 = Node(2, Node(1))

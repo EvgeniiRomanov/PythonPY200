@@ -215,3 +215,6 @@ if __name__ == '__main__':
     linked_list.pop()
     linked_list.pop(5)
     print(linked_list)
+
+
+    print(linked_list.__)
