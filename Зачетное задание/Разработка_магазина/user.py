@@ -76,6 +76,7 @@ if __name__ == "__main__":
     us1 = User("Вася", "123")
     us1.user_basket = bas1
     print(us1._user_password)
+    print(us1.user_password)
 
     #print()
 
