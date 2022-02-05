@@ -17,7 +17,7 @@ class User:
         checktypes.check_type(user_password, str)
 
         self._user_name = user_name
-        #self._user_password = None
+        # self._user_password = None
         self.user_password = user_password  # это свойство (через =)
         self._user_basket = None
 
@@ -26,6 +26,7 @@ class User:
 
     def __str__(self):
         return f"Пользователь: {self._user_name}. В корзине: {self._user_basket}"
+
 
     @property
     def user_password(self):
@@ -42,6 +43,7 @@ class User:
         hash_ = bytes(user_password, "UTF-8")
         hash_password = hashlib.sha256(hash_).hexdigest()
         self._user_password = hash_password
+
 
     @property
     def user_basket(self):
@@ -63,7 +65,7 @@ if __name__ == "__main__":
 
     pr = Product("Овощи", 100, 1.5)
     pr_1 = Product("Бананы", 200, 10)
-    #print(pr.__dict__)
+    # print(pr.__dict__)
     print(pr)
     # Создаем корзину и помещаем в неё продукты
 
@@ -78,5 +80,4 @@ if __name__ == "__main__":
     print(us1._user_password)
     print(us1.user_password)
 
-    #print()
-
+    # print()

@@ -24,23 +24,23 @@ class Shop:
             try:
                 user_name_ = input("Введите Имя пользователя: ")
                 if self.shop_users.get(user_name_) is None:
-                    raise "Вы не наш клиент!"
+                    raise "Вы не наш клиент!"  # Далее можно добавлять тут нового пользователя, если его нет в словаре
                 else:
                     try:
                         user_password_ = input("Введите пароль пользователя:")
                         checktypes.check_type(user_password_, str)
                         hash_ = bytes(user_password_, "UTF-8")
                         hash_password_ = hashlib.sha256(hash_).hexdigest()
-                        print(self.shop_users.values())
-                        print( hash_password_)
-                        if hash_password_ == self.shop_users.values():
+                        #print(self.shop_users.values())
+                        #print( hash_password_)
+                        if hash_password_ == self.shop_users.get(user_name_):
                             print(f"Добро пожаловать в магазин покупатель {user_name_}!")
                             break
                         else:
                             print(f"Вы ввели неправильный пароль, попробуйте снова.")
                             continue
                     except ValueError:
-                        print("Вы ввели не число, попробуйте снова.")
+                        print("!!!!!.")
                         break
             except ValueError:
                 print("Вы пп.")

@@ -77,12 +77,18 @@ class DoubleLinkedNode(Node):
 
 
 if __name__ == "__main__":
+    print("--------Отработка односвязного узла-----------")
     nd1 = Node(1)
-    nd2 = Node(2, Node(1))
+    nd2 = Node(2)
+    print(nd1)
     print(nd2)
     print(nd2.__repr__())
+    nd2.next = nd1
+    print(nd2.__repr__())
 
+    print("--------Отработка двусвязного узла-----------")
     nd3 = DoubleLinkedNode(5)
-    nd4 = DoubleLinkedNode(4, Node(7), Node(5))
+    print(nd3.__repr__())
+    nd4 = DoubleLinkedNode(4, Node(7), nd3)
     print(nd4)
     print(nd4.__repr__())
