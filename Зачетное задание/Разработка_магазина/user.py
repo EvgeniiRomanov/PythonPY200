@@ -4,9 +4,11 @@ from basket import Basket, Product
 
 
 class User:
-    """
-    Класс, который описывает пользователя
-    """
+
+    shop_users = {"Иван": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+                  "Федор": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+                  "Мария": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5"}
+
     def __init__(self, user_name: str, user_password: str):
         """
         Создаем пользователя
@@ -20,6 +22,9 @@ class User:
         # self._user_password = None
         self.user_password = user_password  # это свойство (через =)
         self._user_basket = None
+        cls = self.__class__
+        cls.shop_users[self._user_name] = self.user_password
+        print(cls.shop_users)
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self._user_name}, {self._user_password})"
@@ -30,7 +35,7 @@ class User:
 
     @property
     def user_password(self):
-        """Метод возвращает содержимое корзины пользователя"""
+        """Метод возвращает пароль пользователя"""
         return self._user_password
 
     @user_password.setter
@@ -58,6 +63,7 @@ class User:
         """
         checktypes.check_type(data, Basket)
         self._user_basket = data
+
 
 
 if __name__ == "__main__":

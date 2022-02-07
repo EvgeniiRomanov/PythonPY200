@@ -92,3 +92,4 @@ if __name__ == "__main__":
     nd4 = DoubleLinkedNode(4, Node(7), nd3)
     print(nd4)
     print(nd4.__repr__())
+

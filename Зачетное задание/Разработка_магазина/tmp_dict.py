@@ -17,8 +17,7 @@ while True:
                         hash_ = bytes(user_password_, "UTF-8")
                         hash_password_ = hashlib.sha256(hash_).hexdigest()
                         print(shop_users.values())
-                        print( hash_password_)
-                        #if hash_password_ in shop_users.values():
+                        print(hash_password_)
                         if hash_password_ == shop_users.get(user_name_):
                             print(f"Добро пожаловать в магазин покупатель {user_name_}!")
                             break
