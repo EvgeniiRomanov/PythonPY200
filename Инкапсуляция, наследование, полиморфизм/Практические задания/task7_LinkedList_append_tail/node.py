@@ -20,14 +20,14 @@ class Node:
         return str(self.value)
 
     def is_valid(self, node: Any) -> None:
-        if not isinstance(node, (type(None), Node)):
+        if not isinstance(node, (type(None), Node)):  # O(N)
             raise TypeError
 
     @property
     def next(self):
-        return self._next
+        return self._next      # O(1)
 
     @next.setter
     def next(self, next_: Optional["Node"]):
-        self.is_valid(next_)
-        self._next = next_
+        self.is_valid(next_)   # O(N)
+        self._next = next_     # O(1)
