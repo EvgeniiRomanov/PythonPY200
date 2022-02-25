@@ -1,16 +1,21 @@
-class Glass:
-    count = 0  # количество созданных стаканов
-
-    def __init__(self):
-        print(self.__dict__)
-        cls = self.__class__
-        cls.count += 1
-        print(self.__dict__)
 
 
-# инициализируем стакан
-glass = Glass()
-glass1 = Glass()
 
-print(Glass.count)
-#print(Glass.count)
+
+dict_ = {1: 'АВЕИНОРСТ', 2: 'ДКЛМПУ', 3: 'БГЁЬЯ', 4: 'ЙЫ', 5: 'ЖЗХЦЧ', 6: 'ШЭЮ', 7: 'ФЩЪ'}
+
+def find_sum(str_: str) -> int:
+
+    #t1 = sum([k for i in str_ for k, v in dict_.items() if i in v])
+    sum_ = 0
+
+    for i in str_:
+        for k, v in dict_.items():
+            if i in v:
+                sum_ = sum_ + k
+
+
+    return sum_
+
+str_ = "БФКЩАТ"
+print(find_sum(str_))
